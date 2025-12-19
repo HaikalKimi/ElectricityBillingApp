@@ -16,7 +16,7 @@ public class AboutActivity extends AppCompatActivity {
         githubLink.setOnClickListener(v -> {
             // Requirement: Clickable URL
             // Note: Once you create your GitHub repo, update this link!
-            String url = "https://github.com/HaikalHakimi/ElectricityBillEstimator";
+            String url = "https://github.com/HaikalKimi/ElectricityBillingApp.git";
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         });
