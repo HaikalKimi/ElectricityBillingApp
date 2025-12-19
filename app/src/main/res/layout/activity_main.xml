@@ -1,0 +1,199 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F3F4"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WattsApp"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_blue"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:letterSpacing="0.05"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            android:layout_marginTop="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:background="@color/primary_blue">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Month"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:textColor="#CCFFFFFF"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#10FFFFFF"
+                    android:padding="2dp">
+                    <Spinner
+                        android:id="@+id/spinnerMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#10FFFFFF"
+                        android:paddingStart="12dp"
+                        android:entries="@array/months_array" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Units Used (kWh)"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#CCFFFFFF"/>
+
+                <EditText
+                    android:id="@+id/etUnits"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="Enter kWh value"
+                    android:inputType="numberDecimal"
+                    android:padding="16dp"
+                    android:background="#10FFFFFF"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:elevation="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Rebate (%)"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp"
+                    android:textColor="#CCFFFFFF"/>
+
+                <RadioGroup
+                    android:id="@+id/rgRebate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:padding="12dp"
+                    android:background="#15FFFFFF">
+
+                    <RadioButton android:id="@+id/rb0" android:textColor="#FFFFFF" android:layout_width="match_parent" android:layout_height="40dp" android:text="0% (No Rebate)" android:buttonTint="#FFFFFF" />
+                    <RadioButton android:id="@+id/rb1" android:textColor="#FFFFFF" android:layout_width="match_parent" android:layout_height="40dp" android:text="1%" android:buttonTint="#FFFFFF"/>
+                    <RadioButton android:id="@+id/rb2" android:textColor="#FFFFFF" android:layout_width="match_parent" android:layout_height="40dp" android:text="2%" android:buttonTint="#FFFFFF"/>
+                    <RadioButton android:id="@+id/rb3" android:textColor="#FFFFFF" android:layout_width="match_parent" android:layout_height="40dp" android:text="3%" android:buttonTint="#FFFFFF"/>
+                    <RadioButton android:id="@+id/rb4" android:textColor="#FFFFFF" android:layout_width="match_parent" android:layout_height="40dp" android:text="4%" android:buttonTint="#FFFFFF"/>
+                    <RadioButton android:id="@+id/rb5" android:textColor="#FFFFFF" android:layout_width="match_parent" android:layout_height="40dp" android:text="5% (Full Rebate)" android:buttonTint="#FFFFFF"/>
+                </RadioGroup>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="28dp"
+            android:text="Calculate Bill"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="12dp"
+            android:backgroundTint="@color/primary_blue"
+            android:elevation="6dp"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:text="Save"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="12dp"
+            android:backgroundTint="@color/accent_green"
+            android:elevation="4dp"/>
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Reset Fields"
+            android:textColor="@color/primary_blue"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/primary_blue"
+            app:cornerRadius="12dp"/>
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:background="#FFFFFF"
+            android:elevation="8dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="30dp">
+
+            <Button
+                android:id="@+id/btnHistory"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="55dp"
+                android:text="View History"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="8dp"
+                android:backgroundTint="@color/secondary_blue"
+                android:layout_marginEnd="6dp"/>
+
+            <Button
+                android:id="@+id/btnAbout"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="55dp"
+                android:text="About"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="8dp"
+                android:backgroundTint="@color/secondary_blue"
+                android:layout_marginStart="6dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
